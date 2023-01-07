@@ -1,40 +1,32 @@
-
-let choices = ["rock", "paper", "scissor"]
+// all choices
+const choices = document.querySelectorAll("[key-choice]"); 
+const compChoices = ["rock", "paper", "scissor"]
+//score
+let playerScore = 0,
+computerScore = 0;
 
 const getComputerChoice = () => {
-    return choices[Math.floor(Math.random() * 3)];
+    return compChoices[Math.floor(Math.random() * 3)];
 }
 
-const getPlayerChoice = () => {
-    return (prompt(`Please enter your choice (${choices.join(", ")}): `)).toLowerCase()
-}
 
-const round = (playerSelection, computerSelection) => {
-    let playerChoice = playerSelection()
+const round = (playerChoice, computerSelection) => {
     let computerChoice = computerSelection()
 
-    return  playerChoice === 'rock' && computerChoice === 'scissor' || 
+    if(playerChoice === 'rock' && computerChoice === 'scissor' || 
     playerChoice === 'paper' && computerChoice === 'rock' ||
-    playerChoice === 'scissor' && computerChoice === 'paper' ? `Player won ${playerChoice} beats ${computerChoice}` 
-    : playerChoice === computerChoice ? `it's a tie!` : `Computer won ${computerChoice} beats ${playerChoice}`
+    playerChoice === 'scissor' && computerChoice === 'paper'){
+        playerScore++;
+        return `Player won ${playerChoice} beats ${computerChoice}`;
+    }else if(playerChoice === computerChoice){
+        return `it's a tie!`;
+    }else{
+        computerScore++;
+        return `Computer won ${computerChoice} beats ${playerChoice}`
+    }
 }
 
-const game = () => {
-    let playerScore = 0,
-    computerScore = 0;
-    for(let i = 0; i < 5; i++){
-        let result = round(getPlayerChoice, getComputerChoice)
-        if(result.includes("Player")){
-            console.log(result)
-            playerScore++
-        }else if(result.includes("Computer")){
-            console.log(result)
-            computerScore++
-        }else{
-            console.log(result)
-        }
-    }
-
+const winner = () => {
     if(playerScore > computerScore){
         return "playerWon"
     }else if(playerScore < computerScore){
@@ -44,5 +36,19 @@ const game = () => {
     }
 }
 
-let result = game()
-console.log(result)
+const game = () => {
+    // initial game state
+    Array.from(choices).forEach((choice)=>{
+        choice.addEventListener("click", () => {
+            round(choice.getAttribute("key-choice"), getComputerChoice)
+            if(playerScore == 5 || computerScore == 5){
+                return winner();
+            }
+        })
+    })
+
+}
+
+game()
+
+// display
