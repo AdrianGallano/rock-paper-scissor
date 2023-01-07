@@ -28,7 +28,6 @@ main{
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    width: 100vw;
     padding: 2em 1em 0 1em;
 
 }
@@ -123,11 +122,72 @@ main{
     background-color: var(--color-two);
 }
 
+.pop-up{
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #24232a90;
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    transition: 300ms ease-in-out;
+    gap: 3em;
+}
+
+#won{
+    color: red;
+    font-size: 3em;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    width: 50%;
+}
+
+.menu button{
+    background-color: #0e0d14;
+    border: none;
+    font-family: 'Yeon Sung', cursive;
+    color: var(--color-three);
+    font-size: 1.3em;
+    cursor: pointer;
+
+    padding: 1em 2em;
+
+    box-shadow: 1px 1px 10px #53515b;
+    transition: 300ms ease-in-out;
+}
+
+.menu button a{
+    text-decoration: none;
+    color: var(--color-three);
+}
+
+.menu button:hover{
+    box-shadow: 1px 1px 10px var(--color-two);
+}
+
 @media (max-width: 500px) {
     :root{
         font-size: 14px;
     }
+    .menu{
+        width: 100%;
+    }
 
+    .menu button{
+        font-size: 1em;
+    }
+    
 }
 
 @media (max-width: 350px){

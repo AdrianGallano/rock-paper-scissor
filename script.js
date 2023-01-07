@@ -4,12 +4,16 @@ let playerScore = 0,
 computerScore = 0;
 let roundNumber = 1;
 
+
 // GUI
 const roundGUI = document.getElementById("round")
 const scoreboard = document.getElementsByClassName("scoreboard")
 const choices = document.querySelectorAll("[key-choice]"); 
 const state = document.getElementById("state")
 const playChoice = document.getElementsByClassName("play-choice")
+const popup = document.getElementsByClassName("pop-up")[0]
+const playAgain = document.getElementById("play-again")
+const whoWon = document.getElementById("won")
 
 const getComputerChoice = () => {
     return compChoices[Math.floor(Math.random() * 3)];
@@ -34,9 +38,9 @@ const round = (playerChoice, computerSelection) => {
 
 const winner = () => {
     if(playerScore > computerScore){
-        return "playerWon"
+        return "Player Wins"
     }else if(playerScore < computerScore){
-        return "computerWon"
+        return "Computer Wins"
     }
 }
 
@@ -58,13 +62,21 @@ const displaySelection = (pChoice, cChoice) => {
     playChoice[1].src = `./static/images/${cChoice}.png`
 }
 
+const displayPopUp = (won) => {
+    popup.style.display = "flex"
+    whoWon.textContent = won
+}
+
 const reset = () => {
     playerScore = 0
     computerScore = 0
     roundNumber = 1
     state.style.visibility = "hidden"
+    displayScore()
+    displayRound(roundNumber)
+    displaySelection("rock-paper-scissors-battle", "rock-paper-scissors-battle")
+    popup.style.display = "none"
 }
-
 
 const game = () => {
     // initial game state
@@ -75,12 +87,14 @@ const game = () => {
             displayScore()
             displayRound(roundNumber)
             if(playerScore == 5 || computerScore == 5){
-                winner()
-                reset()
+                displayPopUp(winner())
             }
         })
     })
 
+    playAgain.addEventListener("click", () => {
+        reset()
+    })
 }
 
 game()
