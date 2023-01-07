@@ -5,13 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="icon" href="./static/images/rock-paper-scissors.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="arena">
-        <button type="button" class="selections" key-choice="rock">rock</button>
-        <button type="button" class="selections" key-choice="paper">paper</button>
-        <button type="button" class="selections" key-choice="scissor">scissor</button>
-    </div>
+    <main>
+        <div id="arena">
+
+            <div id="description">
+                <p class="title">Welcome to Rock Paper Scissors!</p>
+                <p class="state">empty</p>
+            </div>
+            
+            <div id="battle-screen">
+                <div class="players">
+                    <p class="scoreboard">Player - 0 </p>
+                    <img src="./static/images/rock-paper-scissors-battle.png" alt="battle-choice" height="auto" width="auto">
+                </div>
+                <p id="vs"><b>VS</b></p>
+                <div class="players">
+                    <p class="scoreboard">Computer - 0</p>
+                    <img src="./static/images/rock-paper-scissors-battle.png" alt="battle-choice" height="auto" width="auto">
+                </div>
+            </div>
+    
+            <div id="choices">
+                <button type="button" class="selections" key-choice="rock">
+                    <img src="./static/images/rock.png" alt="rock">
+                </button>
+                <button type="button" class="selections" key-choice="paper">
+                    <img src="./static/images/paper.png" alt="paper">
+                </button>
+                <button type="button" class="selections" key-choice="scissor">
+                    <img src="./static/images/scissors.png" alt="scissor">
+                </button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

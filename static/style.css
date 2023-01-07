@@ -1,0 +1,143 @@
+:root{
+    --background-one: #0e0d14;
+    --color-one: #24232a;
+    --color-two: #a5ffb1;
+    --color-three: #b3b1b9;
+    --color-four: #53515b;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    
+    background-color: var(--background-one);
+    font-family: 'Yeon Sung', cursive;
+    color: var(--color-three);
+    font-size: 16px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 2em 1em 0 1em;
+
+}
+
+#description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2em;
+    color: red;
+}
+
+.title{
+    font-size: 3em;
+
+}
+
+.state{
+    visibility: hidden;
+
+}
+
+.scoreboard{
+    font-size: 2em;
+}
+
+#arena {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#battle-screen{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#battle-screen img{
+    width: 70%;
+}
+
+.players{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+#choices{
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-four);
+    align-self: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#choices img{
+    width: 80px;
+}
+
+#vs{
+    font-size: 3rem;
+    margin-top: 1em;
+}
+
+.selections{
+    background-color: transparent;
+    border: none;
+    padding: 1em;
+    transition: 200ms ease-in-out;
+}
+
+.selections:nth-child(1){
+    border-top-left-radius: 10px;
+}
+
+.selections:nth-child(3){
+    border-top-right-radius: 10px;
+}
+
+.selections:hover{
+    background-color: var(--color-three);
+
+}
+
+.selections:active{
+    background-color: var(--color-two);
+}
+
+@media (max-width: 500px) {
+    :root{
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 350px){
+    :root{
+        font-size: 10px;
+    }
+    
+    #choices img{
+        width: 50px;
+    }
+}
+
+
