@@ -39,7 +39,7 @@ main{
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 2em;
+    gap: 1em;
     color: red;
 }
 
@@ -48,12 +48,13 @@ main{
 
 }
 
-.state{
+#state{
     visibility: hidden;
-
+    font-size: 1.3em;
 }
 
-.scoreboard{
+.scoreboard,
+#round{
     font-size: 2em;
 }
 
@@ -71,7 +72,7 @@ main{
 }
 
 #battle-screen img{
-    width: 70%;
+    width: 50%;
 }
 
 .players{
@@ -116,7 +117,6 @@ main{
 
 .selections:hover{
     background-color: var(--color-three);
-
 }
 
 .selections:active{
