@@ -15,6 +15,7 @@
     font-family: 'Yeon Sung', cursive;
     color: var(--color-three);
     font-size: 16px;
+    user-select: none;
 }
 
 *{
@@ -37,24 +38,19 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     gap: 1em;
+
+    text-align: center;
     color: red;
+    font-size: 2rem;
 }
 
 .title{
-    font-size: 3em;
-
+    font-size: 3rem;
 }
 
 #state{
-    visibility: hidden;
-    font-size: 1.3em;
-}
-
-.scoreboard,
-#round{
-    font-size: 2em;
+    font-size: 1.3rem;
 }
 
 #arena {
@@ -84,14 +80,15 @@ main{
 #choices{
     display: flex;
     justify-content: center;
-    background-color: var(--color-four);
     align-self: center;
+
+    background-color: var(--color-four);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 #choices img{
-    width: 80px;
+    max-width: 80px;
 }
 
 #vs{
@@ -116,33 +113,36 @@ main{
 
 .selections:hover{
     background-color: var(--color-three);
+    cursor: crosshair;
 }
 
 .selections:active{
     background-color: var(--color-two);
+    cursor: crosshair;
 }
 
 .pop-up{
     display: none;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 0;
     left: 0;
+    gap: 3em;
     height: 100vh;
     width: 100%;
+
     background-color: #24232a90;
     backdrop-filter: blur(8px);
-    z-index: 100;
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
     transition: 300ms ease-in-out;
-    gap: 3em;
 }
 
 #won{
     color: red;
-    font-size: 3em;
+    font-size: 3rem;
 }
 
 .menu{
@@ -150,7 +150,7 @@ main{
     justify-content: center;
     align-items: center;
     gap: 2em;
-    width: 50%;
+    width: 100%;
 }
 
 .menu button{
@@ -158,10 +158,9 @@ main{
     border: none;
     font-family: 'Yeon Sung', cursive;
     color: var(--color-three);
-    font-size: 1.3em;
+    font-size: 1.3rem;
     cursor: pointer;
-
-    padding: 1em 2em;
+    padding: 1em 1.5em;
 
     box-shadow: 1px 1px 10px #53515b;
     transition: 300ms ease-in-out;
@@ -180,12 +179,9 @@ main{
     :root{
         font-size: 14px;
     }
-    .menu{
-        width: 100%;
-    }
 
     .menu button{
-        font-size: 1em;
+        font-size: 1rem;
     }
     
 }
@@ -200,4 +196,11 @@ main{
     }
 }
 
+@media (max-width: 300px){
+    :root{
+        font-size: 9px;
+    }
+    
+
+}
 
